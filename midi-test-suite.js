@@ -253,7 +253,7 @@ addTest("exists", function(ready) {
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 4 + "): " + "typeof navigator !== \"undefined\"");
     if ("requestMIDIAccess" in navigator);
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "\"requestMIDIAccess\" in navigator");
-    if (typeof navigator.getMIDIAccess === "function");
+    if (typeof navigator.requestMIDIAccess === "function");
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "typeof navigator.requestMIDIAccess === \"function\"");
 });
 addTest('midiaccess-interface', function(ready) {
