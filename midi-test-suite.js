@@ -180,7 +180,7 @@ addTest('midiaccess-enumerate', function(ready) {
 }, ['midiaccess-interface']);
 addTest('getoutput', function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         var outputs = MIDIAccess.enumerateOutputs();
         var output = MIDIAccess.getOutput(outputs[0]);
         try {
@@ -251,14 +251,14 @@ addTest('getoutput', function(ready) {
 addTest("exists", function(ready) {
     if (typeof navigator !== "undefined");
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 4 + "): " + "typeof navigator !== \"undefined\"");
-    if ("getMIDIAccess" in navigator);
+    if ("requestMIDIAccess" in navigator);
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "\"getMIDIAccess\" in navigator");
     if (typeof navigator.getMIDIAccess === "function");
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "typeof navigator.getMIDIAccess === \"function\"");
 });
 addTest('midiaccess-interface', function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         try {
             if ("enumerateInputs" in MIDIAccess);
             else throw Error("Assertion failed(" + "src/midiaccess-interface.js" + ":" + 7 + "): " + "\"enumerateInputs\" in MIDIAccess");
@@ -296,7 +296,7 @@ addTest('midiaccess-interface', function(ready) {
 }, ['instantiation']);
 addTest('getinput', function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         var inputs = MIDIAccess.enumerateInputs();
         var input = MIDIAccess.getInput(inputs[0]);
         try {
@@ -364,7 +364,7 @@ addTest('midiaccess-createmidimessage', function(ready) {
     function relativeError(a, b) {
         return (a - b) / b;
     }
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         var now, msg;
         now = +new Date();
         msg = MIDIAccess.createMIDIMessage(0x80);
@@ -437,7 +437,7 @@ addTest('midiaccess-createmidimessage', function(ready) {
 }, ['midiaccess-interface']);
 addTest("instantiation", function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess_1) {
+    navigator.requestMIDIAccess(function(MIDIAccess_1) {
         navigator.getMIDIAccess(function(MIDIAccess_2) {
             try {
                 if (MIDIAccess_1 === MIDIAccess_2);
