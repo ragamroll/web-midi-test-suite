@@ -96,7 +96,7 @@ if (typeof module !== 'undefined') {
 }
 addTest('midiaccess-enumerate', function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         var inputs = MIDIAccess.enumerateInputs();
         try {
             if (inputs.length > 0);
@@ -437,8 +437,8 @@ addTest('midiaccess-createmidimessage', function(ready) {
 }, ['midiaccess-interface']);
 addTest("instantiation", function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess_1) {
-        navigator.getMIDIAccess(function(MIDIAccess_2) {
+    navigator.requestMIDIAccess(function(MIDIAccess_1) {
+        navigator.requestMIDIAccess(function(MIDIAccess_2) {
             try {
                 if (MIDIAccess_1 === MIDIAccess_2);
                 else throw Error("Assertion failed(" + "src/instantiation.js" + ":" + 8 + "): " + "MIDIAccess_1 === MIDIAccess_2");
