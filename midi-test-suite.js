@@ -96,7 +96,7 @@ if (typeof module !== 'undefined') {
 }
 addTest('midiaccess-enumerate', function(ready) {
     ready.async();
-    navigator.getMIDIAccess(function(MIDIAccess) {
+    navigator.requestMIDIAccess(function(MIDIAccess) {
         var inputs = MIDIAccess.enumerateInputs();
         try {
             if (inputs.length > 0);
@@ -252,9 +252,9 @@ addTest("exists", function(ready) {
     if (typeof navigator !== "undefined");
     else throw Error("Assertion failed(" + "src/exists.js" + ":" + 4 + "): " + "typeof navigator !== \"undefined\"");
     if ("requestMIDIAccess" in navigator);
-    else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "\"getMIDIAccess\" in navigator");
+    else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "\"requestMIDIAccess\" in navigator");
     if (typeof navigator.getMIDIAccess === "function");
-    else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "typeof navigator.getMIDIAccess === \"function\"");
+    else throw Error("Assertion failed(" + "src/exists.js" + ":" + 5 + "): " + "typeof navigator.requestMIDIAccess === \"function\"");
 });
 addTest('midiaccess-interface', function(ready) {
     ready.async();
@@ -438,7 +438,7 @@ addTest('midiaccess-createmidimessage', function(ready) {
 addTest("instantiation", function(ready) {
     ready.async();
     navigator.requestMIDIAccess(function(MIDIAccess_1) {
-        navigator.getMIDIAccess(function(MIDIAccess_2) {
+        navigator.requestMIDIAccess(function(MIDIAccess_2) {
             try {
                 if (MIDIAccess_1 === MIDIAccess_2);
                 else throw Error("Assertion failed(" + "src/instantiation.js" + ":" + 8 + "): " + "MIDIAccess_1 === MIDIAccess_2");
